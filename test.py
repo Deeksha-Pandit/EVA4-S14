@@ -41,9 +41,8 @@ outputs = predict(model, inputs)
 
 # Display results
 display_images(outputs.copy(), inputs.copy(),start = int(args.start), end = int(args.end))
-#viz = display_images(outputs.copy(), inputs.copy())
-#plt.figure(figsize=(10,5))
-#plt.imshow(viz)
-#plt.savefig('test.png')
-#plt.show()
+# plt.figure(figsize=(1,1))
+# plt.imshow(viz)
+# plt.savefig('test.png')
+# plt.show()
 print("done")
