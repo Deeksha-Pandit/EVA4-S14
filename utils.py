@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 
 def DepthNorm(x, maxDepth):
     return maxDepth / x
@@ -36,7 +37,7 @@ def to_multichannel(i):
     i = i[:,:,0]
     return np.stack((i,i,i), axis=2)
         
-def display_images(outputs, inputs=None, gt=None, is_colormap=True, is_rescale=True):
+def display_images(outputs, inputs=None, gt=None, is_colormap=True, is_rescale=True,start = 0, end = 10):
     import matplotlib.pyplot as plt
     import skimage
     from skimage.transform import resize
@@ -44,37 +45,57 @@ def display_images(outputs, inputs=None, gt=None, is_colormap=True, is_rescale=T
     plasma = plt.get_cmap('plasma')
 
     shape = (outputs[0].shape[0], outputs[0].shape[1], 3)
+    print(shape)
     
-    all_images = []
+    #all_images = []
 
-    for i in range(outputs.shape[0]):
-        imgs = []
+    for i in range(end-start):
+       # imgs = []
         
-        if isinstance(inputs, (list, tuple, np.ndarray)):
-            x = to_multichannel(inputs[i])
-            x = resize(x, shape, preserve_range=True, mode='reflect', anti_aliasing=True )
-            imgs.append(x)
+        # if isinstance(inputs, (list, tuple, np.ndarray)):
+        #     x = to_multichannel(inputs[i])
+        #     x = resize(x, shape, preserve_range=True, mode='reflect', anti_aliasing=True )
+        #     #imgs.append(x)
 
-        if isinstance(gt, (list, tuple, np.ndarray)):
-            x = to_multichannel(gt[i])
-            x = resize(x, shape, preserve_range=True, mode='reflect', anti_aliasing=True )
-            imgs.append(x)
+        # if isinstance(gt, (list, tuple, np.ndarray)):
+        #     x = to_multichannel(gt[i])
+        #     x = resize(x, shape, preserve_range=True, mode='reflect', anti_aliasing=True )
+        #     imgs.append(x)
 
         if is_colormap:
             rescaled = outputs[i][:,:,0]
+            #print(rescaled.shape)
+            print(rescaled.shape)
             if is_rescale:
                 rescaled = rescaled - np.min(rescaled)
                 rescaled = rescaled / np.max(rescaled)
-            imgs.append(plasma(rescaled)[:,:,:3])
-        else:
-            imgs.append(to_multichannel(outputs[i]))
+            print(rescaled.shape)
+            
+            # img = Image.fromarray(plasma(rescaled)[:,:,:3],mode="RGB")
+            # img.save(f"test{str(start)}.jpg")
+            plt.figure(figsize=(2.24,2.24),dpi=100)
+            plt.imshow(plasma(rescaled)[:,:,:3])
+            plt.axis("off")
+            plt.savefig(f"test{str(start)}.jpg")
+        start+=1
+        print(start)
 
-        img_set = np.hstack(imgs)
-        all_images.append(img_set)
 
-    all_images = np.stack(all_images)
+        
+        #start+=1   
+        #print(start)
+        # else:
+        #     imgs.append(to_multichannel(outputs[i]))
+
+        # img_set = np.hstack(imgs)
+        # plt.imshow(img_set)
+        # plt.axis("off")
+        # plt.savefig("imgggg.jpg")
+        # all_images.append(img_set)
+
+    # all_images = np.stack(all_images)
     
-    return skimage.util.montage(all_images, multichannel=True, fill=(0,0,0))
+    
 
 def save_images(filename, outputs, inputs=None, gt=None, is_colormap=True, is_rescale=False):
     montage =  display_images(outputs, inputs, is_colormap, is_rescale)
