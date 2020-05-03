@@ -14,6 +14,9 @@ from matplotlib import pyplot as plt
 parser = argparse.ArgumentParser(description='High Quality Monocular Depth Estimation via Transfer Learning')
 parser.add_argument('--model', default='nyu.h5', type=str, help='Trained Keras model file.')
 parser.add_argument('--input', default='examples/*.png', type=str, help='Input filename or folder.')
+parser.add_argument('--start', default=1, type=str, help='start of file name.')
+parser.add_argument('--end', default=11, type=str, help='end-1 of file name.')
+
 args = parser.parse_args()
 
 # Custom object needed for inference and training
@@ -37,8 +40,10 @@ outputs = predict(model, inputs)
 #matplotlib.use('TkAgg')   
 
 # Display results
-viz = display_images(outputs.copy(), inputs.copy())
-plt.figure(figsize=(10,5))
-plt.imshow(viz)
-plt.savefig('test.png')
-plt.show()
+display_images(outputs.copy(), inputs.copy(),start = int(args.start), end = int(args.end))
+#viz = display_images(outputs.copy(), inputs.copy())
+#plt.figure(figsize=(10,5))
+#plt.imshow(viz)
+#plt.savefig('test.png')
+#plt.show()
+print("done")
