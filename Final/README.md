@@ -146,7 +146,11 @@ Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pand
 
 :camera: **Foreground**
 
+![Alt text](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Final/Images/fg.PNG)
+
 :camera: **Foreground-Mask**
+
+![Alt text](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Final/Images/fgMask.PNG)
 
 :camera: **Foreground-Background**
 
