@@ -142,7 +142,7 @@ Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pand
 
 :camera: **Background**
 
-EVA4-S14/Final/Images/Bg.png
+Images/Bg.png
 
 :camera: **Foreground**
 
