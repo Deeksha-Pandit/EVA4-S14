@@ -1,4 +1,4 @@
-# Dense Depth model with Custom Dataset
+# Monocular Dense Depth model with Custom Dataset
 ### 1) Link to Custom Dataset: 
 
 https://drive.google.com/drive/folders/1RbJHVxo91jhekv3_E9GZvujUDNDaxFQu
