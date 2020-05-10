@@ -154,9 +154,15 @@ Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pand
 
 :camera: **Foreground-Background**
 
+![Alt text](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Final/Images/fg-bg.PNG)
+
 :camera: **Foreground-Background-Mask**
 
+![Alt text](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Final/Images/fgbgmask.PNG)
+
 :camera: **Depth Images**
+
+![Alt text](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Final/Images/depth.PNG)
 
 
 ### 7) Creation of Dataset
