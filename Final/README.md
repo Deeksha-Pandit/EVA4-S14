@@ -141,7 +141,8 @@ Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pand
 ### 6) How the images look like?
 
 :camera: **Background**
-./Images/Bg.png
+
+../Images/Bg.png
 
 :camera: **Foreground**
 
