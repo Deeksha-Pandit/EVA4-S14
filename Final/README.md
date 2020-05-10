@@ -13,7 +13,7 @@ https://drive.google.com/drive/folders/1RbJHVxo91jhekv3_E9GZvujUDNDaxFQu
 
 :small_orange_diamond:**Dataset**: Contains 5 zip files (data_Part1.zip to data_Part5.zip)
 
-Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 zip files x 80k images = 400k images each):
+:memo: Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 zip files x 80k images = 400k images each):
 
 - Fg-Bg: Contains images where foreground is overlapped on background (fg-bg1 to fg-bg400000)
 
@@ -24,7 +24,7 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 - labels.txt: Containing paths to all folders
 
 **Structure of any one zip folder**
-
+```
 ├── Dataset
 
    ├── data_Part1.zip
@@ -60,7 +60,7 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
     |   └── depth80000.jpg
     
     ├── labels.txt
-   
+   ```
    
 ### 2) Kinds of images
 
@@ -79,7 +79,7 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 
 :large_blue_circle:**Mask**
 
-- These are foreground masks generated :black_square_button:
+- These are foreground masks generated :mask:
 - Image Extension: .jpg
 - Total number of images: 100
 
@@ -92,7 +92,7 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 
 :large_blue_circle:**Fg-Bg-Mask** 
 
-- These are foreground-background masks generated :black_square_button:
+- These are foreground-background masks generated :mask:
 - Image Extension: .jpg
 - Total number of images: 4,00,000
 
@@ -170,7 +170,7 @@ Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pand
 - We are a team of 5 members and we divided the work among us, equally. Data collection and preparation was not that easy, it took loads
 of effort and a lot of time to build such a huge and interesting dataset :wink:
 
-**Background**
+:one: **Background**
 
 :paw_prints: For the 100 background images, we choose living room images
 
@@ -178,7 +178,7 @@ of effort and a lot of time to build such a huge and interesting dataset :wink:
 
 :paw_prints: By choosing such an image size we got an average of 15KB per image 
 
-**Foreground**
+:two: **Foreground**
 
 :paw_prints: For the 100 foreground images, we choose human images
 
@@ -190,7 +190,7 @@ of effort and a lot of time to build such a huge and interesting dataset :wink:
 
 :paw_prints: At the end of all this, we arrived at images sizes of around 7-10KB (or a little more)
 
-**Foreground-Mask**
+:three: **Foreground-Mask**
 
 :paw_prints: At first I used GIMP to create the masks but then found it very time consuming
 
@@ -211,7 +211,7 @@ for i in range(1,101):
 
 :paw_prints: Saved them as .jpg images to save storage space
 
-**Foreground-Background**
+:four: **Foreground-Background**
 
 :paw_prints: So now we had 100 Bg and 100 Fg images
 
@@ -229,7 +229,7 @@ for i in range(1,101):
 
 :paw_prints: The size of each of the zip folders were only around 550MB :bowtie:
 
-**Depth Images**
+:five: **Depth Images**
 
 :paw_prints: We now use the [repo](https://github.com/ialhashim/DenseDepth) to generate our Depth images
 
