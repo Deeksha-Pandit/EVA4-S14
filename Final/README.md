@@ -117,8 +117,10 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 
 :small_red_triangle_down:**Depth Maps** - 4,00,000
 
-### 4) Total size of dataset
-
+### 4) Total size of dataset - 3.98GB
+- Background images: 1.2MB
+- Foreground images: 1.2MB
+- Dataset: 3.92GB
 
 ### 5) Mean and STD values:
 
@@ -229,3 +231,4 @@ for i in range(1,101):
 
 :paw_prints: Each of us did the above processes and created zipped files of around 250MB each (This took me 4.5 hours to generate)
 
+:paw_prints: After all the above processes we merged all the zip files and created one common dataset containg 400K images of each kind for each of us to use :thumbsup:
