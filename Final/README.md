@@ -122,6 +122,8 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 
 ### 5) Mean and STD values:
 
+Used this code to calculate mean and STD: [link](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Mean_STD.ipynb)
+
 **Fg-Bg:**
 - Mean: [0.65830478, 0.61511271, 0.5740604 ]
 - STD: [0.24408717, 0.2542491 , 0.26870159]
@@ -191,4 +193,39 @@ for i in range(1,101):
   img = cv2_imshow(src[:,:,3])
   cv2.imwrite(f'{path}/mask{str(i)}.jpg',src[:,:,3])
 ```
+[GitHub link for the same](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Masking_Fg.ipynb)
+
+:paw_prints: Saved them as .jpg images to save storage space
+
+**Foreground-Background**
+
+:paw_prints: So now we had 100 Bg and 100 Fg images
+
+:paw_prints: We divided the work and each of us were supposed to create 80,000 images 
+
+:paw_prints: We then used this [code for overlap and fg-bg-mask](https://github.com/Deeksha-Pandit/EVA4-S14/blob/master/Overlap_Final.ipynb) for overlapping the Fg onto the Bg and also simultaneously created mask Fg-Bg for all the 80k images 
+
+:paw_prints: We first flipped the Fg-Bg images using ```Image.FLIP_LEFT_RIGHT``` function to create a total of 40 Fg-Bg 
+
+:paw_prints: Then overlapping of Fgs on Bgs was done by using: ```bg.paste(fg, (r1,r2), fg)``` here bg: background, fg: foreground and (r1,r2) are random positions where fg will be overlayed (This was done using randint function) . We did this for each Fg image 20 times on each Bg - This would create 400K images
+
+:paw_prints: The overlap Fg-Bg-Mask was created by creating a black background image of size 224x224 and then placing the Fg on it for masking
+
+:paw_prints: So this way our dataset was built. We then zipped the above generated images in batched of 80K images per head and named the folders data_Part1, data_Part2 respectively.
+
+:paw_prints: The size of each of the zip folders were only around 550MB :bowtie:
+
+**Depth Images**
+
+:paw_prints: We now use the [repo](https://github.com/ialhashim/DenseDepth) to generate our Depth images
+
+:paw_prints: We used NYU dataset because our images were similar to that dataset
+
+:paw_prints: We did a few modifications:
+- In test.py, instead of glob we passed the direct image paths
+- We processed the images in batches of 200 images
+- When ever colab crashed we reconnected so that the session restores and provided different start values according to number of already processed images
+- In utils.py we resized the images to 448x448 and also convered them to greyscale
+
+:paw_prints: Each of us did the above processes and created zipped files of around 250MB each (This took me 4.5 hours to generate)
 
