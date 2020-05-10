@@ -148,8 +148,47 @@ Each .zip file contains 80k fg-bg images, 80k fg-bg masks and 80k depth maps (5 
 
 :camera: **Depth Images**
 
+
 ### 7) Creation of Dataset
 
-We are a team of 5 members and we divided the work among us, equally.
+- We are a team of 5 members and we divided the work among us, equally. Data collection and preparation was not that easy, it took loads
+of effort and a lot of time to build such a huge and interesting dataset :wink:
 
 **Background**
+
+:paw_prints: For the 100 background images, we choose living room images
+
+:paw_prints: We resized the bg images to 224x224 , so that the size is relatively small and does not eat up our storage
+
+:paw_prints: By choosing such an image size we got an average of 15KB per image 
+
+**Foreground**
+
+:paw_prints: For the 100 foreground images, we choose human images
+
+:paw_prints: We first downloaded them and removed their background and made them transparent using Microsoft PowerPoint :wrench:
+
+:paw_prints: After this we resized the humans by maintianing the aspect ratio
+
+:paw_prints: The we saved all our Fg images as .png files , becuase the 4th channel of png images represents transparency
+
+:paw_prints: At the end of all this, we arrived at images sizes of around 7-10KB (or a little more)
+
+**Foreground-Mask**
+
+:paw_prints: At first I used GIMP to create the masks but then found it very time consuming
+
+:paw_prints: Then I thought why not automate the process - I looked for what each channel represents in an image :open_mouth:
+
+This is the code I wrote to mask images in a few seconds :wink:
+
+```
+import cv2
+from google.colab.patches import cv2_imshow
+#read image
+for i in range(1,101):
+  src = cv2.imread(f'{path}/fg{str(i)}.png', cv2.IMREAD_UNCHANGED)
+  img = cv2_imshow(src[:,:,3])
+  cv2.imwrite(f'{path}/mask{str(i)}.jpg',src[:,:,3])
+```
+
