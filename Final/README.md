@@ -244,3 +244,15 @@ for i in range(1,101):
 :paw_prints: Each of us did the above processes and created zipped files of around 250MB each (This took me 4.5 hours to generate)
 
 :paw_prints: After all the above processes we merged all the zip files and created one common dataset containg 400K images of each kind for each of us to use :thumbsup:
+
+**Team Members**
+
+1) Sushmitha Katti
+
+2) Shilpa M
+
+3) Srinivasan G
+
+4) Noopur Agrawal
+
+5) Deeksha Pandit
